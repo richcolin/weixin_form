@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/homepage/homepage",
+    "pages/index/index"
+   
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+            {
+              "pagePath": "pages/homepage/homepage",
+              "text": "个人",
+              "iconPath": "",
+              "selectedIconPath": ""
+            },
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "",
+        "selectedIconPath": ""
+      }
+  
+
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

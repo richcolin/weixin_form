@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view wx:if='{{isAuthorized}}'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+      <view class="userinfo">
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </view>
+      <view class="page__bd section">
+        <view  class="weui-cells__title">文本域</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <textarea name='text_describe' value="{{form_info}}" class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" />
+              <view class="weui-textarea-counter">0/200</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="page__bd page__bd_spacing button-sp-area btn-area">
+      <button class="weui-btn mini-btn" formType="submit">提交</button>
+      <button class="weui-btn mini-btn" formType="reset">重置</button>
+    </view>
+  </form>
+</view>
+<view wx:else>
+  <text>请先切换至个人页登录</text>
+</view>
