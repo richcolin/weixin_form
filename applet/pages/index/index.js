@@ -63,25 +63,28 @@ Page({
   },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    var message=e.detail.value
     var that = this; 
       var header = {}
       if (this.data.isAuthorized) {
         const cookie = cookieUtil.getCookieFromStorage()
         header.Cookie = cookie
+        header["content-type"] = "application/json";
       }
     wx.request({
+      
       url: app.globalData.serverUrl + app.globalData.apiVersion + '/service/grade',
       method: 'POST',
       header: header,
+      // data: { 'name': 'jason' }, 
       data: {
-        form_contents:e.detail.value
+        message: message.text_describe
       },
       success: function (res) {
-        console.log(res.data.data)
-        that.setData({
-          weatherData: res.data.data,
-          form_info:''
-        })
+        // that.setData({
+        //  form_info:''
+        // })
+        
         wx.hideLoading()
       }
     })

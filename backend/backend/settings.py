@@ -80,10 +80,15 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'form',
+        'USER': 'root',
+        'PASSWORD': '123',
+        'HOST': '127.0.0.1',
+        'PORT': '3306'
     }
 }
+
 
 
 # Password validation
@@ -128,7 +133,7 @@ RESOURCES_DIR = os.path.join(BASE_DIR, 'resources')
 IMAGES_DIR = os.path.join(RESOURCES_DIR, 'images')
 
 # app secret 由开发者在微信官网开发者页面生成的
-WX_APP_SECRET = 'bb8a25eb98f1cb7e2d7e7924475aa7c6'
+WX_APP_SECRET = '4a67aeddea29e9aaf93cbbd571dab125'
 
 # session超时时间
 SESSION_COOKIE_AGE = 60*60*24*1
