@@ -75,17 +75,22 @@ Page({
       
       url: app.globalData.serverUrl + app.globalData.apiVersion + '/service/grade',
       method: 'POST',
-      header: header,
+      header:header,
       // data: { 'name': 'jason' }, 
       data: {
         message: message.text_describe
       },
       success: function (res) {
-        // that.setData({
-        //  form_info:''
-        // })
+        if(res.statusCode==405){
+          console.log('请先登录')
+        }else{
+          console.log('写入成功')
+        }
         
         wx.hideLoading()
+      },
+      fail:function(res){
+        console.log(res)
       }
     })
   },

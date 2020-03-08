@@ -16,13 +16,8 @@ urlpatterns = [
     path('menu', menu.get_menu),
     path('image', image.ImageView.as_view()),
     path('image/list', image.ImageListView.as_view()),
-    re_path('grade', grade.gradeView.as_view({"get":"list","post":"create"})),
-    re_path(r'^grade/(?P<pk>\d+)$', grade.gradeView.as_view({
-        'get': 'retrieve',
-        'put': 'update',
-        'patch': 'partial_update',
-        'delete': 'destroy'
-    }), name="grade_detail"),
+    re_path('grade', grade.gradeView.as_view()),
+    re_path(r'^grade/(?P<pk>\d+)$', grade.gradeView.as_view(), name="grade_detail"),
     # path('grade', grade.gradeView.as_view()),
     path('constellation', service.constellation),
     path('joke', service.joke),
